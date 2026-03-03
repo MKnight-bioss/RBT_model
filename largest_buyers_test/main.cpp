@@ -21,7 +21,7 @@ std::string makeSafeFilename(double val){
 
 int main(){
 	
-	int num_params = 1;
+	int num_params = 21;
 	int num_reps = 10;
 	
 	std::vector<double> frac_testing;
@@ -53,3 +53,4 @@ int main(){
 	}
 
 }
+
