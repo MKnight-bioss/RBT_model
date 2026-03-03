@@ -25,11 +25,10 @@ int main(){
 	int num_reps = 10;
 	
 	std::vector<double> frac_testing;
-	std::vector<double> test_sensitivity;
 	frac_testing.resize(num_params, 0.0);
 	
 	for (std::size_t i = 0; i < frac_testing.size(); ++i){
-		frac_testing[i] = 0.0;
+		frac_testing[i] = 0.05*i;
 	}
 	
 	for (int i = 0; i < num_params; ++i){
@@ -43,7 +42,7 @@ int main(){
 		
 		std::string param_file = "sim_params.csv";
 		std::string farm_data_file = "farm_data.csv";
-		std::string output_file = "avg_time_series_output.csv";
+		std::string output_file = "avg_time_series_output_frac_testing_" + makeSafeFileName(frac_testing[i]) + ".csv";
 		
 		SimManager sim_manager(param_file, farm_data_file);
 		sim_manager.runSims(num_reps, output_file, overrides);
@@ -52,4 +51,5 @@ int main(){
 			
 		std::cout << "\rProgress: COMPLETE - Time taken: " << (time_end - time_start)/3600.0 << " hours" << std::endl;
 	}
+
 }
