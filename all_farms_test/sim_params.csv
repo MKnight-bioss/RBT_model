@@ -1,0 +1,17 @@
+﻿param,value
+per_animal_inf_prob,0.09
+gamma,0.50
+price_volatility,0.0001
+demand_elasticity,0.412
+supply_elasticity,0.821
+t_max,300
+disease_intro_time,100
+control_intro_time,150
+frac_testing_purchased_batches,0.2
+test_sensitivity,0.8
+max_risk_score,0.9
+time_to_min_risk_score,5
+frac_not_sharing,0
+risk_score_not_sharing,0
+equi_begin_time,200
+equi_end_time,300
