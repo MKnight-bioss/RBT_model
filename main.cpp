@@ -24,14 +24,6 @@ int main(){
 	int num_params = 1;
 	int num_reps = 10;
 	
-	std::vector<double> frac_testing;
-	std::vector<double> test_sensitivity;
-	frac_testing.resize(num_params, 0.0);
-	
-	for (std::size_t i = 0; i < frac_testing.size(); ++i){
-		frac_testing[i] = 0.0;
-	}
-	
 	for (int i = 0; i < num_params; ++i){
 		
 		auto time_start = time(NULL);
@@ -39,7 +31,6 @@ int main(){
 		std::cout << "Starting parameter " << i+1 << std::endl;
 		
 		std::unordered_map<std::string, double> overrides;
-		overrides["frac_testing_purchased_batches"] = frac_testing[i];
 		
 		std::string param_file = "sim_params.csv";
 		std::string farm_data_file = "farm_data.csv";
@@ -52,4 +43,5 @@ int main(){
 			
 		std::cout << "\rProgress: COMPLETE - Time taken: " << (time_end - time_start)/3600.0 << " hours" << std::endl;
 	}
+
 }
