@@ -21,15 +21,8 @@ std::string makeSafeFilename(double val){
 
 int main(){
 	
-	int num_params = 21;
+	int num_params = 1;
 	int num_reps = 10;
-	
-	std::vector<double> frac_testing;
-	frac_testing.resize(num_params, 0.0);
-	
-	for (std::size_t i = 0; i < frac_testing.size(); ++i){
-		frac_testing[i] = 0.05*i;
-	}
 	
 	for (int i = 0; i < num_params; ++i){
 		
@@ -38,11 +31,10 @@ int main(){
 		std::cout << "Starting parameter " << i+1 << std::endl;
 		
 		std::unordered_map<std::string, double> overrides;
-		overrides["frac_testing_purchased_batches"] = frac_testing[i];
 		
 		std::string param_file = "sim_params.csv";
 		std::string farm_data_file = "farm_data.csv";
-		std::string output_file = "avg_time_series_output_frac_testing_" + makeSafeFileName(frac_testing[i]) + ".csv";
+		std::string output_file = "avg_time_series_output_all_test.csv";
 		
 		SimManager sim_manager(param_file, farm_data_file);
 		sim_manager.runSims(num_reps, output_file, overrides);
@@ -53,3 +45,4 @@ int main(){
 	}
 
 }
+
